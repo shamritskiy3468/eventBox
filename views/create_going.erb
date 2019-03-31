@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Главная</title>
+  <meta charset="utf-8" />
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style type="text/css" href = "/css/style.css"></style>
+  <script src="/js/script.js"></script>
+</head>
+  <body>
+     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  <div class = "container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item ">
+          <a class="nav-link" href="/"> Главная <span class="sr-only">(current)</span></a>
+        </li>     
+      </ul>
+      <a href = "/myaccount/" > Мой кабинет </a>
+      <a href = "/mymessages/" > Мои сообщения </a>
+    </div>
+  </div>
+</nav>
+    <div class="row" style="height: 200px;">
+
+      </div>
+    <div class="container shadow p-3">
+     
+      <form class = "message" action = "/new_going/" method = "post">
+        <div class="form-group">
+          <label >
+            <h3>Описание вашего мероприятия:</h3>
+          </label>
+          
+          <input type="text" class="form-control" name = "title"
+               placeholder="Название">
+          <p> Время события</p>
+          <div class = "d-flex">
+            <input type="number" min = "0" max = "24" class="form-control" name = "start">
+            <input type="number" min = "0" max = "24" class="form-control" name = "finish">
+          </div>
+          <p> Стоимость</p>
+          <input type="number" min = "0" max = "24" class="form-control" name = "price">
+          <p> Количество людей</p>
+          <input type="number" min = "0" max = "224" class="form-control" name = "count_max">
+          <input type="hidden" class="form-control" name = "date" value = "<%= @day %>">
+          <input type="text" class="form-control" name = "tag"
+               placeholder="Категория" name = "title">
+          <textarea class="form-control"  rows="3" placeholder="Описание мероприятия" name = "text"></textarea>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-info mb-2">Отправить</button>
+        </div>
+      </form>
+
+    </div>
+  
+
+</body></html>

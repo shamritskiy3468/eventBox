@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+  	<div class = "container">
+  	<a href="#" class="navbar-left"><img width="50px" height="50px" src="/images/cutmypic.png"></a>
+  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  	 <span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarNav">
+  	 <ul class="navbar-nav">
+  		 <li class="nav-item ">
+  			 <a class="nav-link" href="/"> Главная <span class="sr-only">(current)</span></a>
+  		 </li>
+  		 <li class="nav-item">
+  			 <a class="nav-link navbar-right" href = "/myaccount/" > Мой кабинет </a>
+  		 </li>
+  		 <li class="nav-item">
+  				<a class="nav-link" href = "/mymessages/" > Мои сообщения </a>
+  		 </li>
+  	 </ul>
+  	</div>
+  	</div>
+  	</nav>
+
+    <div class="container shadow p-3">
+    <% @messages.each do |message|%>
+      <div class="card border-dark mt-5">
+        <div class="card-header"><a href = "/account/<%= message["sender_id"] %>"> Отправитель</a></div>
+        <div class="card-body text-dark">
+          <h5 class="card-title"><%= message["title"] %></h5>
+          <p class="card-text">
+            <%= message["text"] %>
+          </p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-3">
+        <a href = "/create_message/<%= message["sender_id"] %>" type="submit" class="btn btn-info mb-2">Ответить</a>
+      </div>
+      <% end %>
+    </div>
+
+    <footer class="footer bg-dark pt-4 text-white fixed-bottom">
+      <div class="row">
+        <div class="col-sm" align="center">
+          <div class="footer-bg" align = "center">
+            <h3>Создатели:</h3>
+            <h6>Сергей</h6>
+            <h6>Игорь</h6>
+            <h6>Олег</h6>
+            <h6>Дима</h6>
+          </div>
+        </div>
+      <div class="col-sm" align = "center">
+        <div class="footer-bg" align = "center">
+            <h6>Организация с</h6>
+            <h6>неограниченной</h6>
+            <h6>безответсвенностью</h6>
+            <h5>ОНБ "NilClass"</h5>
+          </div>
+        </div>
+    	  <div class="col-sm">      <div class="footer-bg" align = "center">
+    	        <h3>Контакты:</h3>
+    	        <h6>8-800-555-35-35</h6>
+    	        <h6>hacknilclass@gmail.com</h6>
+    	        <small style="font-size: 8px">*товар обмену или возврату не подлежит</small>
+    	      </div></div>
+    		</div>
+    		<br>
+    	</footer>
+
+  </body>
+</html>
